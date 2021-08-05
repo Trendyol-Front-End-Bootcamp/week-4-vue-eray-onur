@@ -1,4 +1,7 @@
-# week-4-vue-star-wars-project
+# Star Wars Shipyard App
+
+A web application which lists important ships in the franchise.
+| P.S: Development will be halted for the time being because the API is out of service at the current moment.
 
 ## Project setup
 ```
