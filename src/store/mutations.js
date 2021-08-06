@@ -4,7 +4,4 @@ export default {
         state.prev = payload.prev;
         state.ships = payload.results;
     },
-    FETCH_STARSHIP(state, payload) {
-        state.ship = payload.result;
-    }
 }

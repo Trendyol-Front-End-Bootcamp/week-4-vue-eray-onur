@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <img id="logo" src="./../assets/logo.png" alt="Star Wars">
     <router-view></router-view>
   </div>
 </template>
@@ -38,6 +39,21 @@ h1 {
 p, a {
   font-size: 1.8rem;
 }
+button {
+  outline: none !important;
+  border: 2px solid orange;
+  background: transparent;
+  color: beige;
+  font-size: 1.6rem;
+  padding: 1rem;
+  transition: .15s all;
+}
+button:hover {
+  border-end-start-radius: 10px;
+}
+button:active {
+  background-color: orange;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -45,5 +61,10 @@ p, a {
   text-align: center;
   color: #2c3e50;
 
+}
+#logo {
+  width: 30rem;
+  height: auto;
+  margin: 0 auto;
 }
 </style>

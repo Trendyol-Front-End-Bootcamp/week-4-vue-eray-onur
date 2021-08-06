@@ -2,12 +2,12 @@
   <div class="container">
     <h1>Shipyard</h1>
     <div>
-      <input id="ship-search" type="text" placeholder="Ship name...">
+      <input v-model="name" id="ship-search" type="text" placeholder="Ship name...">
     </div>
     <div id="shipyard">
         <p v-if="this.ships.results.length === 0">No ships were found.</p>
         <template v-else>
-          <sw-ship-card  v-bind:ship="ship" v-for="(ship, index) in ships" :key="`${ship.name}-${index}`" :value="ship.name"/>
+          <sw-ship-card v-for="(ship, index) in filteredShips" v-bind:ship="ship" :key="`${ship.name}-${index}`" :value="ship.name"/>
         </template>
     </div>
     <div id="pagination-menu" v-if="prev && next">
@@ -24,11 +24,11 @@ import ShipCard from '../components/ShipCard.vue';
 export default {
   name: "home",
   components: {
-      'sw-ship-card': ShipCard
+    'sw-ship-card': ShipCard
   },
   data() {
     return {
-
+      name: '',
     };
   },
   mounted: async function() {
@@ -50,7 +50,10 @@ export default {
       ships: state => state.ships,
       next: state => state.next,
       prev: state => state.prev,
-    })
+    }),
+    filteredShips() {
+      return this.ships.filter(s => s.name === name);
+    }
   }
 };
 </script>
